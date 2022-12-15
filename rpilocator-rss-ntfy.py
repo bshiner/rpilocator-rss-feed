@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 import feedparser
 import time
@@ -68,7 +69,7 @@ if f.entries:
 time.sleep(30)
 
 while True:
-    print ('FEED: ', FEED_URL, ' TOPIC: ', NTFY_TOPIC, ' checking...')
+    print (datetime.datetime.now(), ' FEED:', FEED_URL, ' TOPIC:', NTFY_TOPIC, ' checking...')
     # Fetch the feed again, and again, and again...
     f = feedparser.parse(FEED_URL, agent=USER_AGENT)
 
