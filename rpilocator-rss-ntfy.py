@@ -2,23 +2,25 @@ import requests
 import feedparser
 import time
 import json
+import os
 
 # Feed URL
-FEED_URL = 'https://rpilocator.com/feed/'
+FEED_URL = 'https://rpilocator.com/feed/?country=CA&cat=PI4,PIZERO'
 # FEED_URL = 'https://hwlocator.com/feed/'
 
 # ntfy settings
 NTFY_BASE_URL = 'https://ntfy.sh'
-NTFY_TOPIC = '<your topic here>'
-NTFY_PRIORITY = 'default'
+#NTFY_TOPIC = '<your topic here>'
+NTFY_TOPIC = os.environ['TOPIC']
+NTFY_PRIORITY = 'high'
 NTFY_EMOJI = 'white_check_mark'
 INITIAL_NOTIFICATION = False
 
 # Customize the message title
-MESSAGE_TITLE = 'xlocator Stock Alert'
+MESSAGE_TITLE = 'rpilocator Stock Alert'
 
 # User Agent
-USER_AGENT = 'xlocator feed alert'
+USER_AGENT = 'rpilocator feed alert'
 
 # Create the message body
 def formatMessage(entry):
